@@ -1,4 +1,4 @@
-import Server from "next/server";
+import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 
 import prisma from "@/app/libs/prismadb";
@@ -23,5 +23,5 @@ export async function POST(
     }
   });
 
-  return Server.NextResponse.json(user);
+  return NextResponse.json(user);
 }

@@ -1,4 +1,4 @@
-import Server from "next/server";
+import { NextResponse } from "next/server";
 
 import prisma from "@/app/libs/prismadb";
 import getCurrentUser from "@/app/actions/getCurrentUser";
@@ -9,7 +9,7 @@ export async function POST(
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {
-    return Server.NextResponse.error();
+    return NextResponse.error();
   }
 
   const body = await request.json();
@@ -27,7 +27,7 @@ export async function POST(
 
   Object.keys(body).forEach((value: any) => {
     if (!body[value]) {
-      Server.NextResponse.error();
+      NextResponse.error();
     }
   });
 
@@ -46,5 +46,5 @@ export async function POST(
     }
   });
 
-  return Server.NextResponse.json(listing);
+  return NextResponse.json(listing);
 }

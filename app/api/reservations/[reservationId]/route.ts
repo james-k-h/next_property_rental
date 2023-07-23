@@ -1,4 +1,4 @@
-import Server from "next/server";
+import { NextResponse } from "next/server";
 
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import prisma from "@/app/libs/prismadb";
@@ -14,7 +14,7 @@ export async function DELETE(
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {
-    return Server.NextResponse.error();
+    return NextResponse.error();
   }
 
   const { reservationId } = params;
@@ -33,5 +33,5 @@ export async function DELETE(
     }
   });
 
-  return Server.NextResponse.json(reservation);
+  return NextResponse.json(reservation);
 }
