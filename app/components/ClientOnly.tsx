@@ -18,9 +18,9 @@ const ClientOnly: React.FC<ClientOnlyProps> = ({
   if (!hasMounted) return null;
 
   return (
-    <>
+    <div className='bg-black'>
       {children}
-    </>
+    </div>
   );
 };
 

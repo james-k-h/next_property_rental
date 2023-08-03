@@ -57,6 +57,7 @@ const PropertiesClient: React.FC<PropertiesClientProps> = ({
           xl:grid-cols-5
           2xl:grid-cols-6
           gap-8
+          text-neutral-500
         "
       >
         {listings.map((listing: any) => (

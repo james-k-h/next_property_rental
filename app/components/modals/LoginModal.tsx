@@ -68,7 +68,7 @@ const LoginModal = () => {
   }, [loginModal, registerModal])
 
   const bodyContent = (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 text-neutral-500">
       <Heading
         title="Welcome back"
         subtitle="Login to your account!"
@@ -110,11 +110,11 @@ const LoginModal = () => {
       />
       <div className="
       text-neutral-500 text-center mt-4 font-light">
-        <p>First time using Airbnb?
+        <p>First time using Next Property Rental?
           <span 
             onClick={onToggle} 
             className="
-              text-neutral-800
+              text-neutral-500
               cursor-pointer 
               hover:underline
             "
