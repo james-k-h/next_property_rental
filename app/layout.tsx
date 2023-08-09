@@ -1,4 +1,4 @@
-import { Nunito } from 'next/font/google'
+import { Nunito } from 'next/font/google';
 
 import Navbar from '@/app/components/navbar/Navbar';
 import LoginModal from '@/app/components/modals/LoginModal';
@@ -8,29 +8,29 @@ import RentModal from '@/app/components/modals/RentModal';
 
 import ToasterProvider from '@/app/providers/ToasterProvider';
 
-import './globals.css'
+import './globals.css';
 import ClientOnly from './components/ClientOnly';
 import getCurrentUser from './actions/getCurrentUser';
 
 export const metadata = {
   title: 'Next Property Rental',
   description: 'Next Property Rental PoC',
-}
+};
 
-const font = Nunito({ 
-  subsets: ['latin'], 
+const font = Nunito({
+  subsets: ['latin'],
 });
 
 export default async function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   const currentUser = await getCurrentUser();
 
   return (
     <html lang="en">
-      <body className='bg-black'>
+      <body className="bg-black">
         <ClientOnly>
           <ToasterProvider />
           <LoginModal />
@@ -39,10 +39,8 @@ export default async function RootLayout({
           <RentModal />
           <Navbar currentUser={currentUser} />
         </ClientOnly>
-        <div className="pb-20 pt-28 text-neutral-500">
-          {children}
-        </div>
+        <div className="pb-20 pt-28 text-neutral-500">{children}</div>
       </body>
     </html>
-  )
+  );
 }
